@@ -40,7 +40,7 @@ export default function InsurancePartner() {
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 px-4">
         {/* Sidebar */}
         <div className="w-full md:w-1/3">
-          <div className="bg-white rounded-lg h-[380px] shadow border-2 border-gray-300 p-4">
+          <div className="bg-white overflow-hidden rounded-lg h-[380px] shadow border-2 border-gray-300 p-4">
             {insuranceTypes.map((item) => (
               <div
                 key={item.name}
@@ -58,7 +58,7 @@ export default function InsurancePartner() {
 
         {/* Partner Logos */}
         <div className="w-full md:w-2/3 h-[380px] overflow-hidden">
-          <div className="bg-white rounded-lg shadow border-2 border-gray-300 p-4 h-full">
+          <div className="bg-white flex justify-center items-center rounded-lg shadow border-2 border-gray-300 p-4 h-full">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 h-full">
               {partners.map((logo, index) => (
                 <div

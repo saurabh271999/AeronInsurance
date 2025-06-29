@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { FiAlignJustify } from "react-icons/fi";
+import { NavLink } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -137,7 +138,9 @@ export default function Navbar() {
           <button className="hover:text-blue-700" type="button">Raise A Claim</button>
         </nav>
         {/* Login Button */}
+        <NavLink to="login">
         <button className="bg-blue-600 font-medium w-[130px] h-[35px] text-center text-white  rounded-full hover:bg-blue-700">Log in</button>
+        </NavLink>
       </div>
     </div>
   );
