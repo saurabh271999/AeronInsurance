@@ -1,15 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { FiAlignJustify } from "react-icons/fi";
+
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const navRef = useRef();
-
+  const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = (menu) => {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
@@ -22,8 +27,31 @@ export default function Navbar() {
 
   return (
     <div className="w-full shadow-sm">
+     
+      <div className='min-[1000px]:hidden'>
+        <button onClick={toggleMenu} className='text-4xl cursor-pointer m-2 p-2'>
+          <FiAlignJustify />
+        </button>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className='absolute top-16 h-full left-0 w-full bg-gray-400 text-black z-50 p-4'>
+            <ul className="flex flex-col space-y-3">
+              <li className="hover:text-gray-300 cursor-pointer">Home</li>
+              <li className="hover:text-gray-300 cursor-pointer">About</li>
+              <li className="hover:text-gray-300 cursor-pointer">Services</li>
+              <li className="hover:text-gray-300 cursor-pointer">Contact</li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+
+
+
+
       {/* Top Contact Bar */}
-      <div className="flex justify-between items-center bg-gray-100 text-sm px-6 py-2">
+      <div className="flex max-[1000px]:hidden justify-between items-center bg-gray-100 text-sm px-6 py-2">
         {/* Left: Phone and Email */}
         <div className="flex items-center space-x-4 p-2">
           <div className="flex px-2 ml-2 items-center space-x-1 text-blue-700">
@@ -45,7 +73,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <div className="flex justify-around items-center px-6 py-3">
+      <div className="flex max-[1000px]:flex-col gap-10 flex-wrap justify-around items-center px-6 py-3">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-blue-700">DEMO</h1>
 

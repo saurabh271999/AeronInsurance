@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const insuranceTypes = [
-  { name: 'Health Insurance', icon: '/icons/health.png' },
-  { name: 'Motor Insurance', icon: '/icons/motor.png' },
-  { name: 'Travel Insurance', icon: '/icons/travel.png' },
-  { name: 'Shop Insurance', icon: '/icons/shop.png' },
-  { name: 'Home Insurance', icon: '/icons/home.png' },
-  { name: 'Fire Insurance', icon: '/icons/fire.png' },
+  { name: 'Health Insurance', icon: 'https://media.assettype.com/theceo%2F2023-12%2F7964c34a-50cf-4c65-adbd-0df9401e1c48%2FHEALTH.png?w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=theceo%2F2021-06%2Fcc2e1751-5710-40d9-94bb-3932661549cf%2FHeader_logo__1_.png&overlay_position=bottom&overlay_width=100' },
+  { name: 'Motor Insurance', icon: 'https://www.renewbuy.com/sites/default/files/2023-08/Motor%20Insurance%20%282%29.png' },
+  { name: 'Travel Insurance', icon: 'https://img.freepik.com/premium-vector/happy-family-gets-travel-insurance-coverage-travel-insurance-concept-illustration_138260-1762.jpg?semt=ais_items_boosted&w=740' },
+  { name: 'Shop Insurance', icon: 'https://d3jbu7vaxvlagf.cloudfront.net/small/v2/category_media/image_16976137241990.jpeg' },
+  { name: 'Home Insurance', icon: 'https://safetree.in/blog/wp-content/uploads/2020/09/blog-01-1-2.jpg' },
+  { name: 'Fire Insurance', icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1nD1Sq0HdadMyHypex9Yvt18730LF-nI4ig&s' },
 ];
 
 const partners = [
@@ -40,7 +40,7 @@ export default function InsurancePartner() {
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 px-4">
         {/* Sidebar */}
         <div className="w-full md:w-1/3">
-          <div className="bg-white rounded-lg shadow border p-4">
+          <div className="bg-white rounded-lg h-[380px] shadow border-2 border-gray-300 p-4">
             {insuranceTypes.map((item) => (
               <div
                 key={item.name}
@@ -57,9 +57,9 @@ export default function InsurancePartner() {
         </div>
 
         {/* Partner Logos */}
-        <div className="w-full md:w-2/3">
-          <div className="bg-white rounded-lg shadow border p-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="w-full md:w-2/3 h-[380px]">
+          <div className="bg-white rounded-lg shadow border-2 border-gray-300 p-4 h-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 h-full">
               {partners.map((logo, index) => (
                 <div
                   key={index}
