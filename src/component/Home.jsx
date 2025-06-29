@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const images = [
-     "https://bhartiaxa.com/sites/default/files/2022-01/19.png",
+     "https://static.investindia.gov.in/s3fs-public/2019-05/Insurance1.jpg",
     "https://www.hdfclife.com/content/dam/hdfclifeinsurancecompany/knowledge-center/images/retirement/HDFC-Term-Insurance-The-Most-Affordable-Way-to-Protect-Your-Family.png",
   "https://insurance.phonepe.com/static/b9255dbb33d672b33828a697b2a55f45/2a546/basics_of_health_insurance_blog.png",
   "https://insurance.phonepe.com/static/b9255dbb33d672b33828a697b2a55f45/2a546/basics_of_health_insurance_blog.png",

@@ -1,33 +1,35 @@
-import React from 'react';
-import image1 from '../assets/images/image1.png';
+import React from "react";
+import image1 from "../assets/images/image1.png";
 
 const HowWeWorks = () => {
   const steps = [
     {
       id: 1,
-      title: 'Fill Your Details',
-      description: 'Fill in your details and get insurance policy premium quotes from top-rated insurers instantly.',
-      icon: 'form',
-      color: 'bg-blue-50'
+      title: "Fill Your Details",
+      description:
+        "Fill in your details and get insurance policy premium quotes from top-rated insurers instantly.",
+      icon: "form",
+      img: image1,
     },
     {
       id: 2,
-      title: 'Select a Plan',
-      description: 'From numerous available quotes, choose the one that best suits your requirements and budget.',
-      icon: 'document',
-      color: 'bg-orange-50'
+      title: "Select a Plan",
+      description:
+        "From numerous available quotes, choose the one that best suits your requirements and budget.",
+      icon: "document",
+      img: image1,
     },
     {
       id: 3,
-      title: 'Make Payment and Sit Back',
-      description: 'Pay online and get your policy right away in your inbox.',
-      icon: 'payment',
-      color: 'bg-purple-50'
-    }
+      title: "Make Payment and Sit Back",
+      description: "Pay online and get your policy right away in your inbox.",
+      icon: "payment",
+      img: image1,
+    },
   ];
 
   const FormIcon = () => (
-    <div className="w-12 h-16 bg-white border-2 border-gray-300 rounded-sm relative mx-auto">
+    <div className="w-12 h-16 max-[1000]:flex-col justify-center items-center bg-white border-2 border-gray-300 rounded-sm relative mx-auto">
       <div className="absolute top-2 left-1 right-1 space-y-1">
         <div className="h-0.5 bg-gray-400 rounded"></div>
         <div className="h-0.5 bg-gray-400 rounded"></div>
@@ -78,9 +80,9 @@ const HowWeWorks = () => {
   );
 
   const renderIcon = (type) => {
-    if (type === 'form') return <FormIcon />;
-    if (type === 'document') return <DocumentIcon />;
-    if (type === 'payment') return <PaymentIcon />;
+    if (type === "form") return <FormIcon />;
+    if (type === "document") return <DocumentIcon />;
+    if (type === "payment") return <PaymentIcon />;
     return null;
   };
 
@@ -95,45 +97,49 @@ const HowWeWorks = () => {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid  md:grid-cols-3 gap-12">
           {steps.map((step) => (
             <div key={step.id} className="text-center group">
-              <div className={`${step.color} w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+              <div
+                className={`${step.color} w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+              >
                 {renderIcon(step.icon)}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-              <p className="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">{step.description}</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                {step.title}
+              </h3>
+              <p className="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Optional: Mobile Flow Indicators */}
-        <div className="md:hidden flex justify-center items-center space-x-4 mt-12">
-          {steps.map((_, index) => (
-            <React.Fragment key={index}>
-              <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-              {index < steps.length - 1 && (
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-
-        {/* Insurance Plans Grid */}
-        <div className="mt-20 m-10 grid p-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        
+        <div className="mt-15 grid p-4 sm:p-6 md:p-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, index) => (
-            <div key={index} className="bg-white m-5 w-[300px] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-              <div className="p-6">
-                <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                  Lorem Ipsum is simply dummy text
+            <div
+              key={index}
+              className="bg-white flex border-transparent shadow-gray-400  flex-col justify-center items-center p-4 sm:p-5  h-[100px] rounded-lg shadow hover:border-orange-500 transition"
+            >
+              <div className="flex  justify-center  items-center flex-col w-full">
+                <p className="text-sm flex items-center gap-2 text-gray-700 leading-relaxed mb-4">
+                  <img
+                    className="w-[80px] h-[40px] sm:w-[100px] sm:h-[50px] rounded-full object-cover"
+                    src={steps[0].img}
+                    alt=""
+                  />
+                  <span>Lorem Ipsum is simply dummy text</span>
                 </p>
-                <button className="w-full h-[30px]  bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200">
+                <button className="w-full h-[30px] bg-blue-600 hover:bg-blue-700 text-white font-medium rounded transition-colors duration-200">
                   999 / Month
                 </button>
               </div>
             </div>
           ))}
         </div>
+          
+       
       </div>
     </div>
   );

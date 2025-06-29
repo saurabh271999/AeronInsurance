@@ -1,103 +1,70 @@
+'use client';
 import React, { useState } from 'react';
-import { Heart, Car, Plane, ShoppingBag, Home, Flame } from 'lucide-react';
 
-const InsurancePartner = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Health Insurance');
+const insuranceTypes = [
+  { name: 'Health Insurance', icon: '/icons/health.png' },
+  { name: 'Motor Insurance', icon: '/icons/motor.png' },
+  { name: 'Travel Insurance', icon: '/icons/travel.png' },
+  { name: 'Shop Insurance', icon: '/icons/shop.png' },
+  { name: 'Home Insurance', icon: '/icons/home.png' },
+  { name: 'Fire Insurance', icon: '/icons/fire.png' },
+];
 
-  const categories = [
-    { id: 'health', name: 'Health Insurance', icon: Heart, color: 'bg-blue-100 text-blue-600' },
-    { id: 'motor', name: 'Motor Insurance', icon: Car, color: 'bg-orange-100 text-orange-600' },
-    { id: 'travel', name: 'Travel Insurance', icon: Plane, color: 'bg-green-100 text-green-600' },
-    { id: 'shop', name: 'Shop Insurance', icon: ShoppingBag, color: 'bg-purple-100 text-purple-600' },
-    { id: 'home', name: 'Home Insurance', icon: Home, color: 'bg-yellow-100 text-yellow-600' },
-    { id: 'fire', name: 'Fire Insurance', icon: Flame, color: 'bg-red-100 text-red-600' }
-  ];
+const partners = [
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVr8NK5b9R1TnF49et6zZW3tDx-U7zyy1N9w&s',
+  'https://seeklogo.com/images/S/star-health-india-logo-97AD28B8AE-seeklogo.com.png',
+  'https://www.zilliondesigns.com/images/portfolio/insurance/insurance-07.png',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrfTtV8_IxZfycfknuk0Ay5AKIsv445RWP2g&s',
+  'https://www.mbaskool.com/2016_images/top_brands/india_insurance/indins16-09.jpg',
+  'https://www.companycontactdetails.in/wp-content/uploads/2020/04/United-India-Logo.jpg',
+  'https://www.mbaskool.com/2016_images/top_brands/india_insurance/indins16-06.jpg',
+  'https://exchange4media.gumlet.io/news-photo/1513778046_z6OotV_big_india.jpg',
+  'https://resize.indiatvnews.com/en/resize/oldbucket/355_-/businessindia/Chola-MS-Insura11876.jpg',
+  'https://cdn.logojoy.com/wp-content/uploads/2018/07/20162059/insurance19.png',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/New_India_Assurance.svg/1000px-New_India_Assurance.svg.png',
+  'https://cdn.brandfetch.io/avivaindia.com/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed'
+];
 
-  const insuranceCompanies = [
-    { name: 'Oriental Insurance', bg: 'bg-blue-50' },
-    { name: 'Universal Sompo', bg: 'bg-green-50' },
-    { name: 'Insurance Company', bg: 'bg-purple-50' },
-    { name: 'Tata AIG', bg: 'bg-blue-100' },
-    { name: 'SBI General', bg: 'bg-red-50' },
-    { name: 'Royal Sundaram', bg: 'bg-orange-50' },
-    { name: 'Reliance General', bg: 'bg-blue-200' },
-    { name: 'Insurance Partner', bg: 'bg-gray-100' },
-    { name: 'Max Bupa', bg: 'bg-teal-50' },
-    { name: 'IFFCO Tokio', bg: 'bg-green-100' },
-    { name: 'ICICI Lombard', bg: 'bg-orange-100' },
-    { name: 'Reliance General', bg: 'bg-blue-300' },
-    { name: 'SBI General', bg: 'bg-red-100' },
-    { name: 'HDFC ERGO', bg: 'bg-red-200' },
-    { name: 'Universal Sompo', bg: 'bg-green-200' }
-  ];
+export default function InsurancePartner() {
+  const [active, setActive] = useState('Health Insurance');
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-center">
-            <span className="text-orange-500">Insurance</span> <span className="text-black">Partner</span>
-          </h1>
+    <div className="w-full py-10 bg-white flex flex-col flex-wrap">
+      
+      <h2 className="text-4xl font-bold text-center mb-10">
+        <span className="text-orange-500">Insurance</span> Partner
+      </h2>
+
+      
+      <div className="max-w-[1000px] max-[1000px]:grid-cols-2 mx-auto grid grid-cols-5 gap-6 px-4">
+        
+        <div className="col-span-1 h-[400px] m-5 max-[1000px]:w-[400px] flex flex-col justify-center items-center border rounded-lg p-4">
+          {insuranceTypes.map((item) => (
+            <div
+              key={item.name}
+              onClick={() => setActive(item.name)}
+              className={`flex items-center space-x-3 cursor-pointer rounded-lg px-3 py-2 w-full ${
+                active === item.name ? 'bg-blue-100 border border-blue-300' : ''
+              }`}
+            >
+              <img src={item.icon} alt={item.name} className="w-8 h-8" />
+              <span className="font-medium">{item.name}</span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex gap-6">
-          {/* Left Sidebar */}
-          <div className="w-[30%]">
-            <div className="bg-white rounded-xl h-[400px] shadow-sm border-2 border-gray-300 p-4 overflow-y-auto">
-              <div className="space-y-3">
-                {categories.map((category) => {
-                  const IconComponent = category.icon;
-                  const isSelected = selectedCategory === category.name;
-
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.name)}
-                      className={`w-full flex items-center gap-4 p-3 rounded-lg transition-all duration-200 hover:bg-gray-50 ${
-                        isSelected ? 'bg-blue-50 border-2 border-blue-200' : 'border-2 border-transparent'
-                      }`}
-                    >
-                      <div className={`p-3 rounded-lg ${category.color}`}>
-                        <IconComponent size={24} />
-                      </div>
-                      <span className="text-sm font-medium text-gray-800">{category.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
+        {/* Right Side - Partner Logos */}
+        <div className="col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border rounded-lg p-4 h-[400px] justify-items-center items-center">
+          {partners.map((logo, index) => (
+            <div
+              key={index}
+              className="flex h-[50px] items-center justify-center bg-gray-50 rounded-md p-3 shadow-sm"
+            >
+              <img src={logo} alt={`Partner ${index}`} className="max-h-10 object-contain" />
             </div>
-          </div>
-
-          {/* Right Content Area */}
-          <div className="w-[70%] h-[400px]">
-            <div className="bg-white rounded-xl shadow-sm border-2 border-gray-200 p-6">
-              <h2 className="text-lg font-semibold mb-4">Companies under: {selectedCategory}</h2>
-
-              <div className="grid grid-cols-3 gap-3">
-                {insuranceCompanies.map((company, index) => (
-                  <div
-                    key={index}
-                    className={`${company.bg} w-[200px] h-[40px] rounded-lg border border-gray-200 p-6 flex items-center justify-center hover:shadow-md transition duration-200 cursor-pointer`}
-                  >
-                    <div className="text-center">
-                      {/* Placeholder Logo Box */}
-                        <span className="text-gray-700 font-bold text-base">
-                          {company.name.charAt(0)}
-                        </span>
-                      </div>
-                      <span className="text-sm font-medium text-gray-800">{company.name}</span>
-                    </div>
-                 
-                ))}
-              </div>
-
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   );
-};
-
-export default InsurancePartner;
+}

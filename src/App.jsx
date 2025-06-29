@@ -7,6 +7,10 @@ import BestService from './component/BestService'
 import Partner from './component/Partner'
 import Service from './component/Services'
 import HowWeWorks from './component/HowWeWork'
+import Testimonials from './component/Testimonials'
+import Bluesection from './component/Bluesection'
+import Faq from './component/Faq'
+import Footer from './component/Footer'
 import './App.css'
 
 function App() {
@@ -22,6 +26,10 @@ function App() {
     <Partner/>
     <Service/>
     <HowWeWorks/>
+    <Testimonials/>
+    <Bluesection/>
+    <Faq/>
+    <Footer/>
     </>
   )
 }
