@@ -57,13 +57,13 @@ export default function InsurancePartner() {
         </div>
 
         {/* Partner Logos */}
-        <div className="w-full md:w-2/3 h-[380px]">
+        <div className="w-full md:w-2/3 h-[380px] overflow-hidden">
           <div className="bg-white rounded-lg shadow border-2 border-gray-300 p-4 h-full">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 h-full">
               {partners.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex h-[50px] items-center justify-center bg-gray-50 rounded-md p-3 shadow-sm"
+                  className="flex h-[30px] items-center justify-center bg-gray-50 rounded-md p-3 shadow-sm"
                 >
                   <img src={logo} alt={`Partner ${index}`} className="max-h-10 object-contain" />
                 </div>
