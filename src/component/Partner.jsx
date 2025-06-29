@@ -65,7 +65,7 @@ export default function InsurancePartner() {
                   key={index}
                   className="flex h-[30px] items-center justify-center bg-gray-50 rounded-md p-3 shadow-sm"
                 >
-                  <img src={logo} alt={`Partner ${index}`} className="max-h-10 object-contain" />
+                  <img src={logo} alt={`Partner ${index}`} className="max-h-5 object-contain" />
                 </div>
               ))}
             </div>
