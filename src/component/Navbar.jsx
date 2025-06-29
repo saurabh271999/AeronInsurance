@@ -78,7 +78,7 @@ export default function Navbar() {
         <h1 className="text-2xl font-bold text-blue-700">DEMO</h1>
 
         {/* Menu Items */}
-        <nav className="flex space-x-10 text-md font-medium relative" ref={navRef}>
+        <nav className="flex justify-center items-center flex-wrap-reverse space-x-10 text-md font-medium relative" ref={navRef}>
           {/* Health */}
           <div className="relative">
             <button
